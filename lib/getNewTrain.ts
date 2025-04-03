@@ -22,13 +22,17 @@ export default async function getNewTrain(lat: string,lng: string): Promise<Trai
 
     //Parsing the received stops
     //Lint error is the error that could go around
-    const parsedStops: TrainProps[] = data.data.map((stop: any) => ({
-        id: stop.id,
-        name: stop.attributes.name,
-        street: stop.attributes.at_street || "Unknown Street",
-        lat: stop.attributes.latitude,
-        lng: stop.attributes.longitude,
-    }));
+    const parsedStops: TrainProps[] = data.data.map((stop:any) =>
+        (
+            {
+                id: stop.id,
+                name: stop.attributes.name,
+                street: stop.attributes.at_street || "Unknown Street",
+                lat: stop.attributes.latitude,
+                lng: stop.attributes.longitude,
+            }
+        )
+    );
 
     return parsedStops;
 }
