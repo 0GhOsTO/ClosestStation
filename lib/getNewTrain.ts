@@ -12,12 +12,16 @@ export default async function getNewTrain(lat: string,lng: string): Promise<Trai
     // },10000)
     const res = await fetch(url);
     //Will this handle the infinite loop?
+    if (res.status !== 200) {
+        throw new Error("Something went wrong");
+    }
     if (!res.ok) throw new Error("Unable to fetch MBTA Data");
 
     const data = await res.json();
     console.log("Hey, at least", data);
 
     //Parsing the received stops
+    //Lint error is the error that could go around
     const parsedStops: TrainProps[] = data.data.map((stop: any) => ({
         id: stop.id,
         name: stop.attributes.name,

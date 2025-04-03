@@ -54,12 +54,15 @@ const [error, setError] = useState<string | null>(null);
 
     return (
         <ThemeProvider theme={theme}>
-        <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="column"
-            minHeight="100vh">
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                    minHeight: '100vh'
+                }}
+            >
                 <img src="/MBTAT.jpg" alt="MBTA T" style={{ width: '40%', height: 'auto', margin: '2%', borderRadius: 8 }} />
 
             <Button
@@ -100,7 +103,7 @@ const [error, setError] = useState<string | null>(null);
                     {error}
                 </p>
             )}
-        </Box>
+        </div>
         </ThemeProvider>
     );
 }
