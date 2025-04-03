@@ -2,16 +2,18 @@ import getNewTrain from "@/lib/getNewTrain";
 import StopList from "@/components/StopList";
 
 //Seek for the parameters if they exist.
-interface Props {
-    searchParams: {
-        lat?: string;
-        lng?: string;
-    };
-}
+// interface Props {
+//     searchParams: {
+//         lat?: string | undefined;
+//         lng?: string | undefined;
+//     };
+// }
 
-export default async function TrainInfoPage({searchParams}:Props) {
-    const lat = searchParams.lat;
-    const lng = searchParams.lng;
+export default async function TrainInfoPage({searchParams,}: {
+    searchParams?: {lat?: string; lng?: string};
+}) {
+    const lat = searchParams?.lat;
+    const lng = searchParams?.lng;
 
     //If one of them does not contain any data...
     if(!lat || !lng){
