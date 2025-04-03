@@ -9,9 +9,14 @@ import StopList from "@/components/StopList";
 //     };
 // }
 // Why is this not allowed? According to the latest convention...
-export default async function TrainInfoPage({searchParams,}: {
-    searchParams?: {lat?: string; lng?: string};
-}) {
+
+type SearchParams = { lat?: string; lng?: string };
+
+export default async function TrainInfoPage({
+                                                searchParams,
+                                            }: {
+                                                searchParams: SearchParams
+    }) {
     const lat = searchParams?.lat;
     const lng = searchParams?.lng;
 
