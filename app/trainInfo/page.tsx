@@ -1,6 +1,7 @@
 import getNewTrain from "@/lib/getNewTrain";
 import StopList from "@/components/StopList";
 
+//Seek for the parameters if they exist.
 interface Props {
     searchParams: {
         lat?: string;
@@ -12,17 +13,19 @@ export default async function TrainInfoPage({searchParams}:Props) {
     const lat = searchParams.lat;
     const lng = searchParams.lng;
 
+    //If one of them does not contain any data...
     if(!lat || !lng){
         return <div>MISSING LOCATION DATA</div>
     }
 
+    //receive the API result.
     const train = await getNewTrain(lat, lng);
-    console.log(train);
+    //grab the trimmed result.
+    console.log("Filtered: ", train);
 
     return (
-        <div className="flex flex-col items-center bg-blue-200 p-4">
-            <h1>TrainInfo Page</h1>
-            <StopList inputRef={train}/>;
+        <div className="flex flex-col items-center bg-cover bg-center" style={{ backgroundImage: "url('/BlurredMBTA.jpg')"}}>
+            <StopList inputRef={train}/>
         </div>
     );
 }

@@ -13,11 +13,11 @@ export default function StopList({
     console.log("###Rawdata: ", stops);
 
     return(
+
         <div className="flex flex-col items-center">
             {stops.map((p)=> (
                 <StopDisplay key={p.id} inp={p}/>
             ))}
         </div>
-
     )
 }
