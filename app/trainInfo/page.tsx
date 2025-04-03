@@ -8,7 +8,7 @@ import StopList from "@/components/StopList";
 //         lng?: string | undefined;
 //     };
 // }
-
+// Why is this not allowed? According to the latest convention...
 export default async function TrainInfoPage({searchParams,}: {
     searchParams?: {lat?: string; lng?: string};
 }) {
