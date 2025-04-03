@@ -10,15 +10,12 @@ import StopList from "@/components/StopList";
 // }
 // Why is this not allowed? According to the latest convention...
 
-type SearchParams = { lat?: string; lng?: string };
+interface TrainPageProps {
+    searchParams: Promise<{ lat?: string; lng?: string }>;
+}
 
-export default async function TrainInfoPage({
-                                                searchParams,
-                                            }: {
-                                                searchParams: SearchParams
-    }) {
-    const lat = searchParams?.lat;
-    const lng = searchParams?.lng;
+export default async function TrainInfoPage({searchParams}:TrainPageProps){
+    const {lat, lng} = await searchParams
 
     //If one of them does not contain any data...
     if(!lat || !lng){
