@@ -1,7 +1,7 @@
 # [Closest T Station](https://mp-4-nu-beryl.vercel.app/)
 
 Find the "every" closest T station for you. 
-[Website Screenshot](https://mp-4-nu-beryl.vercel.app/)
+![Website Screenshot](https://mp-4-nu-beryl.vercel.app/)
 
 
 ## ✨ Features & Why? 
